@@ -1,0 +1,223 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+.header {
+    width: 100vw;
+    height: 100vh;
+    background: url('../../assets/images/bg1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.header .caption {
+    padding: 20px;
+    max-width: 450px;
+    width: auto;
+    background-color: rgba(36, 49, 42, 0.637);
+    color: #fff;
+}
+
+.caption h1 {
+    color: #93ff73;
+}
+select {
+    position: fixed;
+    top: 20%;
+    right: 10%;
+    font-size: x-large;   
+    background-color: #f3f9f6; 
+    padding: 10px;
+    padding-right: 30px;
+    border-radius: 20px;
+}
+
+#info{
+    padding-left: 20px;
+}
+.column {
+    float: left;
+}
+
+.left {
+    width: 20%;
+    background-color: #f3f9f6;
+    border-right: 5px solid rgb(136, 197, 146);
+    margin-right: 20px;
+    height: 100vh;
+    padding: 0;
+}
+
+.left h3 {
+    margin-top: 0;
+    padding: 15px;
+    background-color: #88c592;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    padding-left: 30px;
+}
+
+.left a {
+    width: 100%;
+    padding: 15px;
+    cursor: pointer;
+    padding-left: 30px;
+}
+
+.middle {
+    width: 40%;
+}
+
+.right {
+    width: 29%;
+}
+
+.add-item-btn  {
+    width: 80%;
+}
+
+button {
+    width: 140px;
+    padding: 15px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer; 
+ }
+
+ .button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 30px;
+  }
+  
+  .blue {background-color: #008CBA;} /* Blue */
+    .red {background-color: #f44336;} /* Red */ 
+    .gray {background-color: #e7e7e7; color: black;} /* Gray */ 
+    .black {background-color: #555555;} /* Black */
+
+    .button:active, .blue:active, .red:active, .black:active, .gray:active {
+        opacity: 0.5;
+    }
+
+  /* add item stylings starts here */
+
+  .add-item-wrapper {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(36, 49, 42, 0.637);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: scroll;
+  }
+
+  #add-item {
+    display: none;
+  }
+
+  .close-icon {
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border: 1px solid #f5f5f5;
+    border-radius: 50%;
+    color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+  }
+
+  .close-icon:hover {
+    background-color: #fff;
+    color: #000;
+  }
+
+  .form {
+    max-width: 400px;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+
+  }
+
+  .form select {
+    position: relative;
+    width: inherit;
+    padding: 5px inherit;
+  }
+
+  .form-selection-wrapper {
+    width: 100%;
+    padding-left: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    overflow-x: hidden;
+  }
+
+  
+
+  .form-selection-wrapper select {
+    width: 160px;
+    padding: 5px;
+    background-color: #fff;
+    border: 1px solid #88c592;
+    margin-top: 5px;
+    font-size: 16px;
+
+  }
+
+  .form-selection-wrapper label {
+    margin-left: -17px;
+  }
+
+  .form h2 {
+    color: #4CAF50;
+  }
+  .form input, textarea {
+    padding: 10px;
+    border-radius: 5px;
+    width: 90%;
+    border: 1px solid #88c592;
+    padding-left: 20px;
+  }
+
+  .form label {
+    align-self: flex-start;
+    font-weight: 500px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+  }
+
+  .form-button-wrapper {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    margin: 10px 0px;
+  }

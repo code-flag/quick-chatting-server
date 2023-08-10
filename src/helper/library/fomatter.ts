@@ -1,0 +1,72 @@
+/**
+ * @author - Francis Olawumi Awe - <awefrancolaz@gmail.com>
+ */
+
+/**
+ * This function helps in converting camel case to kebabcase
+ * @param {string} str - the string value in camel case to be converted to kebab case
+ * @returns {string} - the formatted kebabcase value
+ */
+
+export const camelCaseTokebabCase = (str: string) => {
+  return str
+    .split("")
+    .map((letter: any, idx: any) => {
+      return letter.toUpperCase() === letter
+        ? `${idx !== 0 ? "-" : ""}${letter?.toLowerCase()}`
+        : letter;
+    })
+    .join("");
+};
+
+/**
+ * This function helps in converting camel case to underscore
+ * @param {string} str - the string value in camel case to be converted to underscore
+ * @returns {string} - the formatted underscore value
+ */
+export const camelCaseToUnderscore = (str: string) => {
+  return str
+    .split("")
+    .map((letter, idx) => {
+      return letter.toUpperCase() === letter
+        ? `${idx !== 0 ? "_" : ""}${letter?.toLowerCase()}`
+        : letter;
+    })
+    .join("");
+};
+
+/**
+ * This function helps in converting camel case to spaced words
+ * @param {string} str - the string value in camel case to be converted to spaced words
+ * @returns {string} - the formatted spaced words value
+ */
+export const camelCaseToSeparateWords = (str: string) => {
+  return str
+    .split("")
+    .map((letter, idx) => {
+      return letter.toUpperCase() === letter
+        ? `${idx !== 0 ? " " : ""}${letter?.toLowerCase()}`
+        : letter;
+    })
+    .join("");
+};
+
+export const isObjectKey = (obj: any, key: any) => {
+  if (typeof obj == "object") {
+    // check for payee key
+    if (Object.keys(obj).includes(key)) {
+      return true;
+    } else {
+      return false;
+    }
+  } else {
+    console.log(
+      "Argument is not a valid object or object of objects",
+      obj,
+      "search key",
+      key
+    );
+    return false;
+  }
+};
+

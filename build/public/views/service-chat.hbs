@@ -1,0 +1,168 @@
+    <div class="chat-wrapper" id="chat-wrapper">
+      <div class="header" style="background-color: rgb(80, 75, 9);">
+        <div
+          style="
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+            color: #76bdd3;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          "
+          id="header-title"
+        >
+          <i class="fa fa-chevron-left" style="flex: 1; cursor: pointer; padding-right: 20px; z-index: 100" onclick="toggleView()"></i>
+          <span style="flex: 10; margin-left: -50px">CPAAT MESSENGER</span>
+        </div>
+        <div class="tabs">
+          <span id="tab-1" onclick="switchTab('tab-1')" class="active"> Quick Fix Mechanic</span>
+          {{!-- <span id="tab-2" onclick="switchTab('tab-2')">Service</span>
+          <span id="tab-3" onclick="switchTab('tab-3')">Status</span> --}}
+        </div>
+      </div>
+      <div class="message-wrapper">
+        <div class="message-list" id="tab-1-list">
+          <div class="sender row" onclick="openMessage()">
+            <img src="../assets/images/avatar_nick.png" alt="" />
+            <div class="col detail">
+              <div class="name">Security Staff</div>
+              <div class="caption">I have a visitor stru...</div>
+            </div>
+            <div class="col">
+              <div class="time">21:45 pm</div>
+              <div class="status">Sent</div>
+            </div>
+          </div>
+
+          <div class="sender row slide-left" onclick="openMessage()">
+            <img src="../assets/images/avatar_nick.png" alt="" />
+            <div class="col detail">
+              <div class="name">Support Staff</div>
+              <div class="caption">Pls can you help...</div>
+            </div>
+            <div class="col">
+              <div class="time">21:45 pm</div>
+              <div class="status">delivered</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="message" id="message">
+          <div class="msg-header">
+            <span class="back-icon" onclick="openMessage()"> <i class="fa fa-chevron-left"></i> </span>
+            <img src="../assets/images/avatar_nick.png" alt="" />
+            <div class="name">Support</div>
+          </div>
+
+          <div class="chats">
+            <div class="chat-card right bounce-in-bottom ">
+              Hi
+            </div>
+            <div class="chat-card left bounce-in-bottom ">
+              Hello
+            </div>
+            <div class="chat-card right bounce-in-bottom ">
+              Pls I need help on how to upload payment
+            </div>
+            <div class="chat-card left bounce-in-bottom ">
+              Can I have your user ID
+            </div>
+          </div>
+
+          <div class="msg-input">
+            <textarea name="msg" id="msg" cols="30" rows="1"></textarea>
+            <div class="button"><i class="fa fa-paper-plane"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chat-icon" id="chat-icon" onclick="toggleView()"><i class="fa fa-comments"></i></div>
+
+     {{!-- socket.io implementation --}}
+ <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+
+<script>
+ 
+  function driverInit(userId, userType, userName = 'John Mark'){
+    console.log('socket init')
+      // Initiates a Driver socket
+      const residentConn = io(`localhost:3200/residentNsp`, {
+        transports: ["websocket", "polling"],
+        query: { userId: userId, userType: userType, userName: userName },
+      });
+  
+      // Driver Events
+      residentConn.on("connected", (socketData) => {
+        const { data } = socketData;
+        let connectionId = data && data.connectionId ? data.connectionId : null;
+        console.log('am connected', connectionId);
+        // Expose connection Id for test checking
+  
+        // Listen to Driver events
+  
+        // this._emitEvent("isConnectionId", this.isConnectionId);
+      });
+  
+      residentConn.on("error", (data) => {
+        // Expose error for test checking
+      });
+    };
+
+  var messages = document.getElementById('messages');
+  var form = document.getElementById('form');
+  var input = document.getElementById('input');
+
+  //form.addEventListener('submit', function(e) {
+   // e.preventDefault();
+  //  if (input.value) {
+  //    socket.emit('chat message', input.value);
+  //    input.value = '';
+  //  }
+ // });
+
+  // socket.on('chat message', function(msg) {
+    // var item = document.createElement('li');
+    // item.textContent = msg;
+    // messages.appendChild(item);
+    // window.scrollTo(0, document.body.scrollHeight);
+  // });
+
+  function toggleView() {
+        driverInit(11, 'Service-provider', 'Quick Fix Mechanic');
+
+        var x = document.getElementById("chat-wrapper");
+        var y = document.getElementById("chat-icon");
+        console.log("display: ", x.style.display);
+        let query = x.style.display;
+        query == "none" || query == ""
+          ? (x.style.display = "block")
+          : (x.style.display = "none");
+        query == "block"
+          ? (y.style.display = "flex")
+          : (y.style.display = "none");
+      }
+
+ 
+      function openMessage() {
+        var x = document.getElementById("message");
+        var headerTitle = document.getElementById("header-title");
+        if(x.style.display == "none")
+          {
+            x.style.display = "block";
+            headerTitle.style.display = "none";
+          }
+        else {
+           headerTitle.style.display = "flex";
+           x.style.display = "none";
+          }
+          
+      }
+
+      function closeMessage() {
+        var x = document.getElementById();
+      }
+    </script>
+
