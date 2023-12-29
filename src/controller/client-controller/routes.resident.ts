@@ -35,7 +35,7 @@ router.get("/", (req: any, res: any) => {
 
     req.query.appColor = isHexColor(req.query.appColor) ? req.query.appColor : '000';
     req.query.appBgColor = isHexColor(req.query.appBgColor) ? req.query.appBgColor : '33ccff';
-    req.query.messengerName = req.query.messengerName && req.query.messengerName != '' ? req.query.messengerName : 'CPAAT Messenger';
+    req.query.messengerName = req.query.messengerName && req.query.messengerName != '' ? req.query.messengerName : 'Haweh Messenger';
 
     /**
      *  const appData = JSON.parse(JSON.stringify(req.query.appData));
