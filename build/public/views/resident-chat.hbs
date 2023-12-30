@@ -170,7 +170,7 @@ $("#send-msg").click(function(){
       //https://cpaat-messenger.onrender.com/chat
       // localhost:3200/chat
       // messenger.gate-house.com/chat 
-      residentConn = io(`localhost:3200/chat`, {
+      residentConn = io(`https://chat-hqyi.onrender.com/chat`, {
         transports: ["websocket", "polling"],
         query: { 
            productName: "Gate-house",

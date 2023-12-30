@@ -125,7 +125,7 @@ $("#send-msg").click(function(){
     console.log('socket init')
       // Initiates a Driver socket 
       // messenger.gate-house.com
-      staffConn = io(`localhost:3200/chat`, {
+      staffConn = io(`https://chat-hqyi.onrender.com/chat`, {
         transports: ["websocket", "polling"],
         query: { 
            productName: "Gate-house",
